@@ -8,18 +8,42 @@ if TYPE_CHECKING:
 class Information:
     api: 'apricatewrapper.ApricateAPI'
 
-    def about(self, extension: str = None) -> dict:
-        endpoint = "/about" if extension is None else f"/about{extension}"
-        return self.api._get_request(endpoint)
+    def about(self) -> dict:
+        '''Returns a info about other /about endpoints.
+
+           Returns:
+                dict: the response of the api call
+        '''
+        return self.api._get_request("/about")
 
     def about_sizes(self) -> dict:
-        return self.about("/sizes")
+        '''Returns a info about plots and crop sizes.
+
+           Returns:
+                dict: the response of the api call
+        '''
+        return self.about("/about/sizes")
 
     def about_magic(self) -> dict:
-        return self.about("/magic")
+        '''Returns a info about magic and rites.
+
+           Returns:
+                dict: the response of the api call
+        '''
+        return self.about("/about/magic")
 
     def about_plants(self) -> dict:
-        return self.about("/plants")
+        '''Returns a info about plants.
+
+           Returns:
+                dict: the response of the api call
+        '''
+        return self.about("/about/plants")
 
     def about_world(self) -> dict:
-        return self.about("/world")
+        '''Returns a info about lore of the world, the player and the grouping of locations.
+
+           Returns:
+                dict: the response of the api call
+        '''
+        return self.about("/about/world")

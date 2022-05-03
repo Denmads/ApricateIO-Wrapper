@@ -9,13 +9,24 @@ class Warehouses:
     api: 'apricatewrapper.ApricateAPI'
 
     def my_warehouses(self) -> dict:
-        if not self.api.has_auth_token():
-            raise apricatewrapper.MissingAuthTokenException
+        '''Returns a list of all warehouses for the user.
+        
+           Requires auth token. 
 
-        return self.api._get_request("/my/warehouses")
+           Returns:
+                dict: the response of the api call
+        '''
+        return self.api._get_request("/my/warehouses", secure = True)
 
-    def my_specific_warehouse(self, symbol: str) -> dict:
-        if not self.api.has_auth_token():
-            raise apricatewrapper.MissingAuthTokenException
+    def my_specific_warehouse(self, location_symbol: str) -> dict:
+        ''' Returns data on a specific warehouse.
+        
+            Requires auth token. 
 
-        return self.api._get_request(f"/my/warehouses/{symbol}")
+            Args:
+                location_symbol (str): The location of the warehouse.
+
+            Returns:
+                dict: the response of the api call
+        '''
+        return self.api._get_request(f"/my/warehouses/{location_symbol}", secure = True)

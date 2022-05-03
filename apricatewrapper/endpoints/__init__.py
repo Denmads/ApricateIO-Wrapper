@@ -4,3 +4,10 @@ from .locations import Locations
 from .warehouses import Warehouses
 from .users import Users
 from .quests import Quests
+from .plots import Plots
+from .plants import Plants
+from .markets import Markets
+from .magic import Magic
+from .farms import Farms
+from .caravans import Caravans
+from .assistants import Assistants

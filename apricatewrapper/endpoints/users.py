@@ -9,13 +9,33 @@ class Users:
     api: 'apricatewrapper.ApricateAPI'
 
     def create_user(self, username: str) -> dict:
+        ''' Creates a user with the given username, if available. 
+
+            Args:
+                username (str): The username.
+
+            Returns:
+                dict: the response of the api call
+        '''
         return self.api._post_request(f"/users/{username}/claim")
 
     def public_user_info(self, username: str) -> dict:
+        ''' Returns the public information of a user.
+
+            Args:
+                username (str): The username of the user.
+
+            Returns:
+                dict: the response of the api call
+        '''
         return self.api._get_request(f"/users/{username}")
 
     def my_user_info(self) -> dict:
-        if not self.api.has_auth_token():
-            raise apricatewrapper.MissingAuthTokenException
+        '''Returns the info of the user.
+        
+           Requires auth token. 
 
-        return self.api._get_request("/my/user")
+           Returns:
+                dict: the response of the api call
+        '''
+        return self.api._get_request("/my/user", secure = True)
