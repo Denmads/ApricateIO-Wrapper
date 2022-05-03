@@ -8,10 +8,10 @@ with open("requirements.txt", "r") as req_file:
 
 setup(
     name="apricatewrapper",
-    version="0.0.1.2",
+    version="0.0.1.5",
     author="Mads Jensen",
     author_email="",
-    description="A wrapper around the Apricate.io API",
+    description="A wrapper around the Apricate.io API in python",
     long_description=readme,
     long_description_content_type="text/markdown",
     url="https://github.com/Denmads/ApricateIO-Wrapper",

@@ -1,8 +1,12 @@
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    import apricatewrapper
 
 @dataclass
 class Information:
-    api: any
+    api: 'apricatewrapper.ApricateAPI'
 
     def about(self, extension: str = None) -> dict:
         endpoint = "/about" if extension is None else f"/about{extension}"
