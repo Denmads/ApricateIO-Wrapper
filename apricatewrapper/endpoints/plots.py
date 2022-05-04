@@ -34,7 +34,7 @@ class Plots:
                 dict: the response of the api call
         '''
         id = self.__format_id(location_symbol, plot_id)
-        return self.api._post_request(f"/my/plots/{id}", secure = True)
+        return self.api._get_request(f"/my/plots/{id}", secure = True)
 
     def my_plot_plant(self, location_symbol: str, plot_id: int, name: str, quantity: int, size: str) -> dict:
         ''' Plants seeds on a plot.
