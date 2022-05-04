@@ -46,13 +46,13 @@ class ApricateAPI:
     def _post_request(self, endpoint: str, data: dict = None, secure:bool = False) -> dict:
         url = self.base_url + endpoint
         header = self.__headers(secure)
-        r = requests.post(url, headers=header, data=data)
+        r = requests.post(url, headers=header, json=data)
         return r.json()
 
     def _patch_request(self, endpoint: str, data: dict = None, secure:bool = False) -> dict:
         url = self.base_url + endpoint
         header = self.__headers(secure)
-        r = requests.patch(url, headers=header, data=data)
+        r = requests.patch(url, headers=header, json=data)
         return r.json()
 
     def _put_request(self, endpoint: str, secure:bool = False) -> dict:
